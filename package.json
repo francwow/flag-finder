@@ -1,22 +1,21 @@
 {
   "name": "flag-finder",
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "description": "flag-finder App",
+  "main": "App.jsx",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "format": "prettier --write \"src/**/*.(js,jsx)\"",
-    "lint": "eslint \"src/**/*.(js,jsx)\" --quiet",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "format": "prettier --write \"src/**/*.{js,jsx}\"",
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/francwow/flag-finder.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Francisco Osorio Silva",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/francwow/flag-finder/issues"
@@ -24,13 +23,19 @@
   "homepage": "https://github.com/francwow/flag-finder#readme",
   "devDependencies": {
     "@vitejs/plugin-react": "^2.1.0",
-    "eslint": "^8.24.0",
-    "eslint-config-prettier": "^8.5.0",
-    "prettier": "^2.7.1",
-    "vite": "^3.1.4"
+    "eslint": "8.24.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-jsx-a11y": "6.6.1",
+    "eslint-plugin-react": "7.31.8",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "prettier": "2.7.1",
+    "vite": "3.1.4"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "@tanstack/react-query": "4.10.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-router-dom": "6.4.1"
   }
 }
