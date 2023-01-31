@@ -52,14 +52,14 @@ h1 {
   background-color: pink;
 }
 
-.container {
+.img-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.container h2 {
+.img-container h2 {
   font-family: monospace;
   text-decoration: underline;
   font-size: 2rem;
