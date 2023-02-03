@@ -1,7 +1,7 @@
 import fetchCountries from "./fetchCountries";
 import { useQuery } from "@tanstack/react-query";
-import { Link } from "react-router-dom";
 import { useState } from "react";
+import Flag from "./Flag";
 
 const Search = () => {
   const [currentCountry, setCurrentCountry] = useState(null);
@@ -50,15 +50,10 @@ const Search = () => {
         />
       </div>
 
-      <span>{searchValue}</span>
-
       {currentCountry ? (
-        <Link to={`/details/${currentCountry.name}`}>
-          <div className="img-container">
-            <h2>{currentCountry.name}</h2>
-            <img src={currentCountry.flags.png} alt={currentCountry.name} />
-          </div>
-        </Link>
+        <div className="country-container">
+          <Flag currentCountry={currentCountry} />
+        </div>
       ) : null}
     </div>
   );

@@ -1,9 +1,13 @@
-const Flag = () => {
+import { Link } from "react-router-dom";
+
+const Flag = ({ currentCountry }) => {
   return (
-    <div className="imgContainer">
-      <h2>{}</h2>
-      {/* <img src={props.flags} alt="country flag" /> */}
-    </div>
+    <Link to={`/details/${currentCountry.name}`}>
+      <div className="img-container">
+        <h2>{currentCountry.name}</h2>
+        <img src={currentCountry.flags.png} alt={currentCountry.name} />
+      </div>
+    </Link>
   );
 };
 
