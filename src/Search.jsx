@@ -1,43 +1,34 @@
 import fetchCountries from "./fetchCountries";
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Search = () => {
+  const [currentCountry, setCurrentCountry] = useState(null);
+  const [searchValue, setSearchValue] = useState("");
   const results = useQuery(["countries"], fetchCountries);
   const countries = results.data;
 
+  const lookCountry = () => {
+    countries.forEach((country) => {
+      if (searchValue === country.name) {
+        setCurrentCountry(country);
+      }
+    });
+  };
+
   const searchInputHandler = (e) => {
-    const imgContainer = document.querySelector(".img-container");
     if (e.key === "Enter") {
-      imgContainer.innerHTML = "";
-      console.log(countries);
-      countries.forEach((country) => {
-        if (e.target.value === country.name) {
-          console.log(country);
-          const title = document.createElement("h2");
-          const flag = document.createElement("img");
-          title.innerHTML = country.name;
-          flag.src = country.flags.png;
-          imgContainer.append(title, flag);
-        }
-      });
+      lookCountry();
     }
   };
 
   const searchBtnHandler = () => {
-    const input = document.getElementById("search");
-    const imgContainer = document.querySelector(".img-container");
-    imgContainer.innerHTML = "";
+    lookCountry();
+  };
 
-    countries.forEach((country) => {
-      if (input.value === country.name) {
-        console.log(country);
-        const title = document.createElement("h2");
-        const flag = document.createElement("img");
-        title.innerHTML = country.name;
-        flag.src = country.flags.png;
-        imgContainer.append(title, flag);
-      }
-    });
+  const onSearch = (e) => {
+    setSearchValue(e.target.value);
   };
 
   return (
@@ -48,15 +39,27 @@ const Search = () => {
           name="search"
           id="search"
           onKeyDown={searchInputHandler}
+          onInput={onSearch}
         />
         <input
           type="submit"
           name="submit"
           id="submit"
+          className="submit-btn"
           onClick={searchBtnHandler}
         />
       </div>
-      <div className="img-container"></div>
+
+      <span>{searchValue}</span>
+
+      {currentCountry ? (
+        <Link to={`/details/${currentCountry.name}`}>
+          <div className="img-container">
+            <h2>{currentCountry.name}</h2>
+            <img src={currentCountry.flags.png} alt={currentCountry.name} />
+          </div>
+        </Link>
+      ) : null}
     </div>
   );
 };

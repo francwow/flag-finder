@@ -5,12 +5,58 @@
 body {
   margin: 0;
   font-family: monospace;
-  background-color: beige;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+body.darkMode {
+  --bg-color: black;
+  --text-color: beige;
+  --btn-color: beige;
+  --border-color: beige;
+}
+
+body.lightMode {
+  --bg-color: beige;
+  --text-color: black;
+  --btn-color: beige;
+  --border-color: beige;
+}
+
+a {
+  color: var(--text-color);
 }
 
 h1 {
   text-decoration: underline;
+  color: inherit;
   margin: 30px;
+}
+
+.header {
+  color: var(--text-color);
+}
+
+.btn-container {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  width: 50px;
+  height: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 100vw;
+  padding: 3px;
+  background-color: var(--text-color);
+}
+
+.darkMode-btn {
+  width: 20px;
+  height: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: var(--bg-color);
 }
 
 .search-container {
@@ -39,7 +85,7 @@ h1 {
   display: none;
 }
 
-#submit {
+.submit-btn {
   cursor: pointer;
   font-family: monospace;
   font-size: large;
@@ -47,7 +93,7 @@ h1 {
   background-color: black;
 }
 
-#submit:active {
+.submit-btn:active {
   color: black;
   background-color: pink;
 }
@@ -57,6 +103,8 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-width: 350px;
+  margin: auto;
 }
 
 .img-container h2 {
@@ -64,4 +112,8 @@ h1 {
   text-decoration: underline;
   font-size: 2rem;
   color: black;
+}
+
+.flex-end {
+  justify-content: flex-end;
 }
