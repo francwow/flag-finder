@@ -25,7 +25,7 @@ const App = () => {
           </Link>
           <DarkMode />
           <Routes>
-            <Route path="/details/:name" element={<Details />} />
+            <Route path="/details/:countryName" element={<Details />} />
             <Route path="/" element={<Search />} />
           </Routes>
         </div>

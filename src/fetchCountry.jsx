@@ -1,6 +1,8 @@
 const fetchCountry = async ({ queryKey }) => {
-  const name = queryKey[1];
-  const data = await fetch(`https://restcountries.com/v2/name/${name}`);
+  const countryName = queryKey[1];
+  const data = await fetch(
+    `https://restcountries.com/v3.1/name/${countryName}`
+  );
 
   if (!data.ok) {
     throw new Error("fetch not ok");

@@ -1,5 +1,5 @@
 const fetchCountries = async () => {
-  const data = await fetch(`https://restcountries.com/v2/all`);
+  const data = await fetch(`https://restcountries.com/v3.1/all`);
 
   if (!data.ok) {
     throw new Error("fetch not ok");

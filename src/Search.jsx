@@ -11,7 +11,8 @@ const Search = () => {
 
   const lookCountry = () => {
     countries.forEach((country) => {
-      if (searchValue === country.name) {
+      if (searchValue === country.name.common) {
+        console.log(country);
         setCurrentCountry(country);
       }
     });
