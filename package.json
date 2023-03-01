@@ -2,7 +2,8 @@
   "name": "flag-finder",
   "version": "1.0.0",
   "description": "flag-finder App",
-  "main": "App.jsx",
+  "main": "app.jsx",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
